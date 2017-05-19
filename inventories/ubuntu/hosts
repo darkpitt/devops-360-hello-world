@@ -8,4 +8,6 @@
 172.16.115.3
 
 [ubuntu:children]
-ubuntu[1:3]
+ubuntu1
+ubuntu2
+ubuntu3
