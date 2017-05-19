@@ -1,0 +1,11 @@
+[ubuntu1]
+172.16.115.1
+
+[ubuntu2]
+172.16.115.2
+
+[ubuntu3]
+172.16.115.3
+
+[ubuntu:children]
+ubuntu[1:3]
