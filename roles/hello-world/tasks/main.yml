@@ -1,6 +1,41 @@
 ---
 # tasks file for hello-world
 #
-- name: Debug Hello-world
-  debug:
-    msg: "Hello {{ hello_world_msg }}"
+#- name: Debug Hello-world
+#  debug:
+#    msg: "Hello {{ hello_world_msg }}"
+#
+#
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Rewrite nginx configuration
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/sites-available/default
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create site root folder
+  file:
+    path: "{{ hello_world_nginx_root }}"
+    owner: www-data
+    group: www-data
+    state: directory
+    mode: 0755
+
+- name: Deploy index.html from template
+  template:
+    src: index.html.j2
+    dest: "{{ hello_world_nginx_root }}/index.html"
+    owner: www-data
+    group: www-data
+    mode: 0644  
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted

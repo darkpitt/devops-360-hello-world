@@ -1,0 +1,15 @@
+server {                                             
+        listen {{ hello_world_nginx_port }} default_server;                    
+        listen [::]:{{ hello_world_nginx_port }} default_server ipv6only=on;   
+                                                     
+        root {{ hello_world_nginx_root }};                  
+        index index.html index.htm;                  
+                                                     
+        # Make site accessible from http://localhost/
+        server_name localhost;                       
+                                                     
+        location / {                                 
+                try_files $uri $uri/ =404;           
+        }                                            
+                                                     
+}

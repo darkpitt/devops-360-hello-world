@@ -1,0 +1,4 @@
+---
+
+hello_world_nginx_root: /opt/hello-world
+hello_world_nginx_port: 8080

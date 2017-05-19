@@ -3,3 +3,5 @@
 #
 #
 hello_world_msg: 'World'
+hello_world_nginx_port: 80
+hello_world_nginx_root: 'usr/share/nginx/html'
