@@ -3,4 +3,4 @@
 #
 - name: Debug Hello-world
   debug:
-    msg: "Hello world"
+    msg: "Hello {{ hello_world_msg }}"
